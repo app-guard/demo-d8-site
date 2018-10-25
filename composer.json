@@ -1,0 +1,107 @@
+{
+    "name": "drupal-composer/drupal-project",
+    "description": "Project template for Drupal 8 projects with composer",
+    "type": "project",
+    "license": "GPL-2.0+",
+    "authors": [
+        {
+            "name": "",
+            "role": ""
+        }
+    ],
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://packages.drupal.org/8"
+        },
+        {
+            "type": "vcs",
+            "url": "https://github.com/backupmigrate/backup_migrate_core"
+        }
+    ],
+    "require": {
+        "composer/installers": "^1.0.20",
+        "cweagans/composer-patches": "~1.0",
+        "phing/phing": "^2.12",
+        "continuousphp/phing-drush-task": "@dev",
+        "drupal-composer/drupal-scaffold": "^1.2",
+        "drupal/core": "~8.2",
+        "drush/drush": "^8.1.10",
+        "drupal/config_update": "~1.1",
+        "drupal/console": "~1.0",
+        "drupal/admin_toolbar": "~1.0",
+        "drupal/coffee": "~1.0",
+        "drupal/pathauto": "~1.0",
+        "drupal/ds": "~2.0",
+        "drupal/diff": "~1.0",
+        "drupal/workbench_moderation": "~1.0",
+        "drupal/field_group": "~1.0",
+        "drupal/field_collection": "3.x-dev",
+        "drupal/inline_entity_form": "~1.0",
+        "drupal/fpa": "2.x-dev",
+        "drupal/config_pages": "1.0-rc5",
+        "drupal/entity": "~1.0",
+        "drupal/ultimate_cron": "2.x-dev",
+        "drupal/flag": "4.x-dev",
+        "tecnickcom/tcpdf": "^6.2",
+        "drupal/migrate_plus": "3.x-dev",
+        "drupal/migrate_tools": "3.x-dev",
+        "drupal/migrate_upgrade": "3.0-rc1",
+        "drupal/masquerade": "2.x-dev",
+        "drupal/workbench": "1.x-dev",
+        "drupal/views_ef_fieldset": "^1.0",
+        "backupmigrate/core": "dev-master",
+        "psr/log": "^1.0",
+        "drupal/backup_migrate": "4.x-dev",
+        "drupal/draggableviews": "^1.0",
+        "drupal/workbench_email": "^1.0@alpha",
+        "drupal/environment_indicator": "^3.0",
+        "drupal/swiftmailer": "^1.0@beta",
+        "drupal/ldap": "3.0.0-beta3",
+        "drupal/externalauth": "^1.0",
+        "drupal/authorization": "1.x-dev",
+        "drupal/config_ignore": "1.x-dev"
+    },
+    "require-dev": {
+        "behat/mink": "~1.6",
+        "behat/mink-goutte-driver": "~1.2",
+        "jcalderonzumba/gastonjs": "^1.1@dev",
+        "jcalderonzumba/mink-phantomjs-driver": "~0.3.1",
+        "mikey179/vfsStream": "~1.2",
+        "phpunit/phpunit": "~4.8",
+        "symfony/css-selector": "2.7.*",
+        "drupal/coder": "~2.0",
+        "phpmd/phpmd": "2.*",
+        "sebastian/phpcpd": "2.*",
+        "drupal/devel": "~1.0",
+        "geerlingguy/drupal-vm": "^3.1",
+        "drupal/whoops": "@dev",
+        "squizlabs/php_codesniffer": "^2.6"
+    },
+    "conflict": {
+        "drupal/drupal": "*"
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true,
+    "config": {
+        "bin-dir": ".bin/",
+        "secure-http": false
+    },
+    "extra": {
+        "patches": {
+            "drupal/workbench": {
+                "#2829266-fix-problems-with-cut-tags-in-exposed-filters": "https://www.drupal.org/files/issues/2829266-fix-problems-with-cut-tags-in-exposed-filters.patch"
+            },
+            "drupal/config_ignore": {
+                "#2857873 Allowing user to select operations": "https://www.drupal.org/files/issues/config_ignore-allowing-user-to-select-operations-2857873-11.patch"
+            }
+        },
+        "installer-paths": {
+            "docroot/core": ["type:drupal-core"],
+            "docroot/modules/contrib/{$name}": ["type:drupal-module"],
+            "docroot/profiles/contrib/{$name}": ["type:drupal-profile"],
+            "docroot/themes/contrib/{$name}": ["type:drupal-theme"],
+            "drush/contrib/{$name}": ["type:drupal-drush"]
+        }
+    }
+}
